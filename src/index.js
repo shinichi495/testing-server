@@ -1,23 +1,13 @@
-const {ApolloServer,gql} =  require('apollo-server') 
-const schema = gql`
-    type Query {
-        me : User
-    }
-    type User {
-        user : String!
-        pass : String!
-    }
-` ;
-const resolver = {
-    Query: {
-        me : () => {
-            return {user : "shinichi495", pass : "13232"}
-        }
-    }
-};
+const {ApolloServer} =  require('apollo-server') 
+const resolver = require('./resolvers').default
+const schema = require('./schema')
+
+const resolverss = resolver
+console.log(resolverss);
+
 const server = new ApolloServer({
     typeDefs : schema,
-    resolvers : resolver
+    resolvers : resolverss
 });
 server.listen().then(({url}) => {
     console.log(`server start at ${url}`);
