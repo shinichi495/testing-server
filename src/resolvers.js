@@ -1,3 +1,5 @@
+const DB = require('./mogodb/MogodbCollection')
+const { UserInputError } = require('apollo-server')
 const resolver = {
     Query: {
         getAuthors: () => {
@@ -6,8 +8,16 @@ const resolver = {
     },
     Mutation: {
         addUser: (parent, args) => {
-            console.log("dsadsa", args)
             return { user: args.user, pass: args.pass }
+        },
+        login: async (parent, args) => {
+            const db = new DB()
+            const success = await db.login(args.user, args.pass)
+            if (!success) {
+                throw new UserInputError('User or Password is not good')
+            } else {
+                return { user: args.user, pass: args.pass }
+            }
         }
     }
 }

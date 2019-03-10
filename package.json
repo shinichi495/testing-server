@@ -17,12 +17,15 @@
     "apollo-server-testing": "2.2.0-alpha.2",
     "graphql": "^14.0.2",
     "isemail": "^3.1.3",
+    "mongodb": "^3.1.13",
+    "mongoose": "^5.4.18",
     "nodemon": "^1.18.4",
     "sequelize": "^4.39.0",
     "sqlite3": "^4.0.3"
   },
   "devDependencies": {
     "@playlyfe/gql": "^2.6.1",
+    "@types/mongodb": "^3.1.22",
     "apollo-link": "^1.2.3",
     "apollo-link-http": "^1.5.5",
     "jest": "^23.6.0",

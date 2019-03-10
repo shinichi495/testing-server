@@ -9,6 +9,7 @@ const schema = gql`
     }
     type Mutation {
         addUser (user : String!, pass : String!) : Author!
+        login (user : String!,pass : String!) : Author!
     }
 `;
 module.exports = schema
