@@ -11,10 +11,19 @@ const resolver = {
             return { user: args.user, pass: args.pass }
         },
         login: async (parent, args) => {
-            const db = new DB()
-            const success = await db.login(args.user, args.pass)
+            const success = await DB.login(args.user, args.pass)
             if (!success) {
-                throw new UserInputError('User or Password is not good')
+                throw new UserInputError('User or Password is not good') 
+            } else {
+                return { user: args.user, pass: args.pass }
+            }
+        },
+        signUp : async (p,args) => {
+            console.log(args.user);
+
+            const success = await DB.signUp(args.user, args.pass)
+            if (!success) {
+                throw new UserInputError('Create User Error')
             } else {
                 return { user: args.user, pass: args.pass }
             }
