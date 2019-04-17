@@ -23,6 +23,8 @@ class MongoDB {
                 return true
             }
         } catch (error) {
+            console.log('dsadsa');
+            
             client.close()
             return false
         }
